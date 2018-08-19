@@ -15,16 +15,15 @@ import java.util.Collections;
 public class Leaderboard extends javax.swing.JFrame {
 
     private ArrayList<Player> list;
-    private Functions f;
+    private FileIO f;
 
     /**
      * Creates new form Leaderboard
      */
     public Leaderboard() {
         initComponents();
-        f = new Functions();
-        list = new ArrayList<>();
-        list = f.readFile(null);
+        f = new FileIO();
+        list = new ArrayList<>(f.readScores());
         showScores();
         jTextArea.setEditable(false);
     }
@@ -87,21 +86,21 @@ public class Leaderboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonActionPerformed
 
     private void showScores() {
-        boolean isFile = true;
-        try {
-            Collections.sort(list, Player.pComparator);
-        } catch (Exception e) {
-            isFile = false;
+        if (!list.isEmpty()) {
+            try {
+                Collections.sort(list, Player.pComparator);
+                int i = 0;
+                for (Player player : list) {
+                    jTextArea.append((i + 1) + ".) " + player.getName() + " - Score: " + player.getScore() + "\n");
+                    i++;
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else {
             jTextArea.append("The Leader Board is Empty");
         }
-        
-        if(isFile){
-            int i = 0;
-            for (Player player : list) {
-                jTextArea.append((i + 1) + ".) " + player.getName() + " - Score: " + player.getScore() + "\n");
-                i++;
-            }
-        }
+
     }
 
     /**

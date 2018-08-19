@@ -24,7 +24,7 @@ public class QuestionGUI extends javax.swing.JFrame {
     private int score;
     private String name;
     private ArrayList<Player> scores;
-    private Functions f;
+    private FileIO f;
 
     /**
      * Creates new form Question
@@ -52,7 +52,7 @@ public class QuestionGUI extends javax.swing.JFrame {
         score = 0;
         this.name = name;
         scores = new ArrayList<>();
-        f = new Functions();
+        f = new FileIO();
     }
 
     /**
@@ -153,9 +153,8 @@ public class QuestionGUI extends javax.swing.JFrame {
                 score++;
             }
         }
-        JOptionPane.showMessageDialog(null, "You scored " + score + "/5");;
-        scores = f.readFile(scores);
-        f.saveScore(name, score, scores);
+        JOptionPane.showMessageDialog(null, "You scored " + score + "/5");
+        f.saveScores(name, score);
         new Menu().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_submitBtnActionPerformed

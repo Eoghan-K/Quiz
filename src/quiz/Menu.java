@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Menu extends javax.swing.JFrame {
 
-    String name;
+    private String name;
     
     /**
      * Creates new form Menu
