@@ -29,7 +29,6 @@ public class QuestionGUI extends javax.swing.JFrame {
     /**
      * Creates new form Question
      */
-    String a;
     public QuestionGUI(String name) {
         initComponents();
         list = q.getList();
