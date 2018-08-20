@@ -17,7 +17,6 @@ import javax.swing.JTextField;
  */
 public class QuestionGUI extends javax.swing.JFrame {
    
-    private final Question q;
     private final ArrayList<String[]> QList;
     private final ArrayList<JLabel> labelList;
     private final ArrayList<JTextField> answerList;
@@ -31,8 +30,7 @@ public class QuestionGUI extends javax.swing.JFrame {
      */
     public QuestionGUI(String name) {
         initComponents();
-        q = new Question();
-        QList = q.getList();
+        QList = Question.getList();
         Collections.shuffle(QList);
         labelList = new ArrayList(){{
             add(qLbl0);
@@ -48,7 +46,7 @@ public class QuestionGUI extends javax.swing.JFrame {
             add(aTF3);
             add(aTF4);
         }};
-        fillQuiz();
+        makeQuiz();
         score = 0;
         this.name = name;
         f = new FileIO();
@@ -139,7 +137,7 @@ public class QuestionGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fillQuiz() {
+    private void makeQuiz() {
         for (int i = 0; i < 5; i++) {
             labelList.get(i).setText(QList.get(i)[0]);
         }

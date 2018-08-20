@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Question {
     
-    private ArrayList<String[]> list;
+    private static ArrayList<String[]> list;
     
     public Question(){
         list = new ArrayList(){{
@@ -30,7 +30,8 @@ public class Question {
         }};
     }
 
-    public ArrayList<String[]> getList() {
+    public static ArrayList<String[]> getList() {
+        new Question();
         return list;
     }
 }
