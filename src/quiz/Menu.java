@@ -112,6 +112,7 @@ public class Menu extends javax.swing.JFrame {
         Leaderboard leaderboard = new Leaderboard();
         leaderboard.setVisible(true);
         this.setVisible(false );
+        this.dispose();
     }//GEN-LAST:event_leaderboardBtnActionPerformed
 
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
@@ -121,6 +122,7 @@ public class Menu extends javax.swing.JFrame {
             QuestionGUI question = new QuestionGUI(name);
             question.setVisible(true);
             this.setVisible(false);
+            this.dispose();
         } else{
             JOptionPane.showMessageDialog(null, "You must enter a name");
         }

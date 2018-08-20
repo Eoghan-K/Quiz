@@ -17,23 +17,23 @@ import javax.swing.JTextField;
  */
 public class QuestionGUI extends javax.swing.JFrame {
    
-    private Question q = new Question();
-    private ArrayList<String[]> list;
-    private ArrayList<JLabel> labelList;
-    private ArrayList<JTextField> answerList;
+    private final Question q;
+    private final ArrayList<String[]> QList;
+    private final ArrayList<JLabel> labelList;
+    private final ArrayList<JTextField> answerList;
     private int score;
-    private String name;
-    private ArrayList<Player> scores;
-    private FileIO f;
+    private final String name;
+    private final FileIO f;
 
     /**
      * Creates new form Question
+     * @param name
      */
-    String a;
     public QuestionGUI(String name) {
         initComponents();
-        list = q.getList();
-        Collections.shuffle(list);
+        q = new Question();
+        QList = q.getList();
+        Collections.shuffle(QList);
         labelList = new ArrayList(){{
             add(qLbl0);
             add(qLbl1);
@@ -51,7 +51,6 @@ public class QuestionGUI extends javax.swing.JFrame {
         fillQuiz();
         score = 0;
         this.name = name;
-        scores = new ArrayList<>();
         f = new FileIO();
     }
 
@@ -142,14 +141,14 @@ public class QuestionGUI extends javax.swing.JFrame {
 
     private void fillQuiz() {
         for (int i = 0; i < 5; i++) {
-            labelList.get(i).setText(list.get(i)[0]);
+            labelList.get(i).setText(QList.get(i)[0]);
         }
     }
     
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
         for (int i = 0; i < 5; i++) {
-            if (answerList.get(i).getText().trim().equalsIgnoreCase(list.get(i)[1])) {
+            if (answerList.get(i).getText().trim().equalsIgnoreCase(QList.get(i)[1])) {
                 score++;
             }
         }
@@ -157,6 +156,7 @@ public class QuestionGUI extends javax.swing.JFrame {
         f.saveScores(name, score);
         new Menu().setVisible(true);
         this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_submitBtnActionPerformed
     
     /**
