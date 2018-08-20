@@ -4,8 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/eogha/OneDrive/Documents/college/year_2/oop/Quiz/Quiz/src/quiz/Leaderboard.java</file>
+            <file>file:/C:/Users/eogha/OneDrive/Documents/college/year_2/oop/Quiz/Quiz/src/quiz/Question.java</file>
             <file>file:/C:/Users/eogha/OneDrive/Documents/college/year_2/oop/Quiz/Quiz/src/quiz/QuestionGUI.java</file>
-            <file>file:/C:/Users/eogha/OneDrive/Documents/college/year_2/oop/Quiz/Quiz/src/quiz/Functions.java</file>
+            <file>file:/C:/Users/eogha/OneDrive/Documents/college/year_2/oop/Quiz/Quiz/src/quiz/Menu.java</file>
+            <file>file:/C:/Users/eogha/OneDrive/Documents/college/year_2/oop/Quiz/Quiz/src/quiz/Player.java</file>
+            <file>file:/C:/Users/eogha/OneDrive/Documents/college/year_2/oop/Quiz/Quiz/src/quiz/FileIO.java</file>
         </group>
     </open-files>
 </project-private>

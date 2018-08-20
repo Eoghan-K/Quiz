@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  * @author Eoghan Kenny
  */
 public class QuestionGUI extends javax.swing.JFrame {
-   
+
     private final ArrayList<String[]> QList;
     private final ArrayList<JLabel> labelList;
     private final ArrayList<JTextField> answerList;
@@ -26,26 +26,31 @@ public class QuestionGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Question
+     *
      * @param name
      */
     public QuestionGUI(String name) {
         initComponents();
         QList = Question.getList();
         Collections.shuffle(QList);
-        labelList = new ArrayList(){{
-            add(qLbl0);
-            add(qLbl1);
-            add(qLbl2);
-            add(qLbl3);
-            add(qLbl4);
-        }};
-        answerList = new ArrayList(){{
-            add(aTF0);
-            add(aTF1);
-            add(aTF2);
-            add(aTF3);
-            add(aTF4);
-        }};
+        labelList = new ArrayList() {
+            {
+                add(qLbl0);
+                add(qLbl1);
+                add(qLbl2);
+                add(qLbl3);
+                add(qLbl4);
+            }
+        };
+        answerList = new ArrayList() {
+            {
+                add(aTF0);
+                add(aTF1);
+                add(aTF2);
+                add(aTF3);
+                add(aTF4);
+            }
+        };
         makeQuiz();
         score = 0;
         this.name = name;
@@ -142,21 +147,25 @@ public class QuestionGUI extends javax.swing.JFrame {
             labelList.get(i).setText(QList.get(i)[0]);
         }
     }
-    
-    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        // TODO add your handling code here:
+
+    private void correctQuiz() {
         for (int i = 0; i < 5; i++) {
             if (answerList.get(i).getText().trim().equalsIgnoreCase(QList.get(i)[1])) {
                 score++;
             }
         }
+    }
+
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        correctQuiz();
         JOptionPane.showMessageDialog(null, "You scored " + score + "/5");
         f.saveScores(name, score);
         new Menu().setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_submitBtnActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */

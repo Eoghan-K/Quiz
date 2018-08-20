@@ -109,8 +109,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void leaderboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderboardBtnActionPerformed
         // TODO add your handling code here:
-        Leaderboard leaderboard = new Leaderboard();
-        leaderboard.setVisible(true);
+        new Leaderboard().setVisible(true);
         this.setVisible(false );
         this.dispose();
     }//GEN-LAST:event_leaderboardBtnActionPerformed
@@ -119,8 +118,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!nameTF.getText().trim().equals("")) {
             name = nameTF.getText().trim();
-            QuestionGUI question = new QuestionGUI(name);
-            question.setVisible(true);
+            new QuestionGUI(name).setVisible(true);
             this.setVisible(false);
             this.dispose();
         } else{
